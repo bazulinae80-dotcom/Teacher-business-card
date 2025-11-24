@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Futuristic English Tutor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: radial-gradient(circle at 30% 20%, #1a1f3a, #0b0e26 70%);
+      --card: rgba(255,255,255,0.06);
+      --neon: #38f8ff;
+      --neon-pink:#ff4df0;
+      --text:#e3faff;
+      --muted:#8ba6b0;
+      --border: 1px solid rgba(255,255,255,0.12);
+    }
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{
+      font-family:Inter, Orbitron, sans-serif;
+      background:var(--bg);
+      min-height:100vh;
+      padding:40px;
+      color:var(--text);
+      display:flex;
+      justify-content:center;
+    }
+    .frame{
+      width:100%;
+      max-width:1200px;
+      border:var(--border);
+      border-radius:20px;
+      padding:40px;
+      background:rgba(255,255,255,0.02);
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 40px rgba(56,248,255,0.18);
+    }
+    .hero{
+      text-align:center;
+      margin-bottom:40px;
+    }
+    .hero h1{
+      font-family:Orbitron;
+      font-size:40px;
+      letter-spacing:2px;
+      text-shadow:0 0 8px var(--neon);
+    }
+    .hero p{color:var(--muted); font-size:16px; margin-top:10px}
+
+    .grid{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:32px;
+    }
+    .card{
+      padding:24px;
+      background:var(--card);
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.1);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(115deg, transparent 60%, rgba(56,248,255,0.12));
+      pointer-events:none;
+    }
+    h3{
+      font-family:Orbitron;
+      margin-bottom:12px;
+      color:var(--neon);
+      font-size:20px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 20px;
+      margin-top:20px;
+      border-radius:10px;
+      background:rgba(56,248,255,0.08);
+      border:1px solid var(--neon);
+      color:var(--text);
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      transition:0.25s;
+    }
+    .btn:hover{
+      background:rgba(56,248,255,0.2);
+      box-shadow:0 0 12px var(--neon);
+    }
+
+    /* Форма — футуристичная */
+    form{
+      margin-top:18px;
+      padding:18px;
+      background:rgba(255,255,255,0.04);
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,0.1);
+      font-size:14px;
+    }
+    label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      cursor:pointer;
+    }
+    input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      accent-color:var(--neon);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="hero">
+      <h1>KATE ANDERSON — FUTURE ENGLISH TUTOR</h1>
+      <p>Разговорный английский, экзамены, бизнес-коммуникация — в формате будущего.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Контакты</h3>
+        <p>📞 +49 157 4456 2299</p>
+        <p>📩 kate.english.tutor@example.com</p>
+
+        <form>
+          <label>
+            <input type="checkbox" required />
+            <span>Согласен с условиями оферты</span>
+          </label>
+        </form>
+
+        <a class="btn" id="signupBtn" style="pointer-events:none; opacity:0.4;" $1>Записаться</a>
+      </div>
+
+      <div class="card">
+        <h3>Направления</h3>
+        <p>• Разговорный английский 1:1</p>
+        <p>• IELTS, TOEFL</p>
+        <p>• Английский для работы</p>
+      </div>
+
+      <div class="card">
+        <h3>Цены</h3>
+        <p>45 мин — 20€</p>
+        <p>60 мин — 28€</p>
+        <p>10 уроков — скидка 10%</p>
+      </div>
+
+      <div class="card">
+        <h3>Отзывы</h3>
+        <p>«Очень современный формат и отличный результат!» — Ольга</p>
+        <p>«Подготовка к IELTS прошла на высоте.» — Сергей</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const checkbox = document.querySelector('input[type="checkbox"]');
+    const btn = document.getElementById('signupBtn');
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
+      } else {
+        btn.style.opacity = '0.4';
+        btn.style.pointerEvents = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
